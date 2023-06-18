@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_sound/flutter_sound.dart';
@@ -155,6 +154,7 @@ class _ChatState extends State<Chat> {
               controller: _textController,
               onChanged: (String text) {},
               decoration: const InputDecoration.collapsed(hintText: "输入消息"),
+              keyboardType: TextInputType.multiline,
             ),
           ),
           Container(
