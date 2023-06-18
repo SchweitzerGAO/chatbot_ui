@@ -152,9 +152,14 @@ class _ChatState extends State<Chat> {
             )
                 : TextField(
               controller: _textController,
-              onChanged: (String text) {},
-              decoration: const InputDecoration.collapsed(hintText: "输入消息"),
               keyboardType: TextInputType.multiline,
+              maxLines: null,
+              minLines: 1,
+              decoration: const InputDecoration(
+                hintText: '输入消息',
+                contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                isDense: true,
+              ),
             ),
           ),
           Container(
@@ -190,7 +195,7 @@ class _ChatState extends State<Chat> {
   Future<void> _chatText() async {
     var message = "";
     setState(() {
-      if (_textController.text.isNotEmpty) {
+      if (_textController.text.trim().isNotEmpty) {
         message = _textController.text;
         _messageList.add(TextBubble(text: message,
             isCurrentUser: true,
